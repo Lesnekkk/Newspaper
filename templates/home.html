@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block title %} Home {% endblock title %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  {% block content %}
+  {% if user.is_authenticated %}
+    Hello {{ user.username }}
+    <p><a href="{% url 'logout' %}">Log Out|</a> </p>
+  {% else %}
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Log In|</a>
+  <a href="{% url 'signup' %}"> Sign UP</a>
+  {% endif %}
+  {% endblock content %}
+</head>
+
+<body>
+
+</body>
+</html>
