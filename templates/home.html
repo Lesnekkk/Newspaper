@@ -9,7 +9,7 @@
     <title>Title</title>
   {% block content %}
   {% if user.is_authenticated %}
-    Hello {{ user.username }}
+    Hello {{ user.username }}, u r {{ user.age }} years old)!
     <p><a href="{% url 'logout' %}">Log Out|</a> </p>
   {% else %}
     <p>You are not logged in</p>
