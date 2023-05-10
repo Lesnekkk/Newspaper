@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from django.db import connection
 
 import pages.apps
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     "crispy_forms",
     "crispy_bootstrap5",
+    'articles.apps.ArticlesConfig',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +140,6 @@ EMAIL_HOST_USER = "nikitalesnichiy@rambler.ru"
 EMAIL_HOST_PASSWORD = "pPMxmD8WVFhsXTq0"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+
