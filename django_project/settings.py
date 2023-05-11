@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from django.db import connection
-
+from environs import Env
+env = Env()
+env.read_env()
 import pages.apps
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,13 +25,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!k$pua6+cxcqtmt_(*ls6nuxt2fk8&&l0d5l4-5_@!l2fmx6i*'
+SECRET_KEY = env.str("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 # Application definition
 
@@ -140,6 +143,9 @@ EMAIL_HOST_USER = "nikitalesnichiy@rambler.ru"
 EMAIL_HOST_PASSWORD = "pPMxmD8WVFhsXTq0"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+DEBUG = env.bool("DEBUG", default=False)
+
+
 
 
 
